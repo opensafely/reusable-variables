@@ -54,7 +54,7 @@ dataset.immuno= is_immunosuppressed(index_date) #immunosuppress grouped
 dataset.asplen= has_prior_event(spln_cov, index_date) # asplenia or dysfunction of the Spleen
 dataset.obes= has_sev_obes(index_date) #immunosuppress grouped
 dataset.sev_ment= has_sev_mental(index_date) #severe mental illness
-dataset.one_primis= at_least_one_primis(index_date) #at least one primis
+dataset.one_primis= has_at_least_one_primis(index_date) #at least one primis
 
 ## others cx variables of interest
 dataset.sol_org_trans= has_prior_event(solid_organ_transplant, index_date) # Organs transplant
