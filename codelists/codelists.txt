@@ -1,6 +1,6 @@
-#Ethnicity
-opensafely/ethnicity-snomed-0removed/22911876
-
+#######################################################
+# PRIMIS
+#######################################################
 
 #Asthma
 primis-covid19-vacc-uptake/astadm/6dee7f06
@@ -55,30 +55,5 @@ primis-covid19-vacc-uptake/bmi/v2.5
 primis-covid19-vacc-uptake/bmi_stage/v2.5
 primis-covid19-vacc-uptake/sev_obesity/v2.5
 
-
 #Learning disability
 primis-covid19-vacc-uptake/learndis/v2.5
-
-# HIV/SIDA
-nhsd/hiv-aids-snomed/68ca529e
-
-#Solid organ transplant
-opensafely/solid-organ-transplantation-snomed/2020-04-10
-
-#Cancer
-#Non haem-lung cancer
-opensafely/cancer-excluding-lung-and-haematological-snomed/2020-04-15
-
-#Chemotherapy
-opensafely/chemotherapy-or-radiotherapy-snomed/2020-04-15
-
-#Lung cancer
-opensafely/lung-cancer-snomed/2020-04-15
-
-# Haem cancer
-opensafely/haematological-cancer-snomed/2020-04-15
-
-#Other
-#nhsd/haematopoietic-stem-cell-transplant-snomed/3ec3ac16
-#nhsd/haematological-malignancies-snomed/31a49191
-#nhsd/sickle-spl-atriskv4-snomed-ct/7083ed37
