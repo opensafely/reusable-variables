@@ -1,8 +1,13 @@
 version: '4.0'
 
 actions:
-  generate_dataset:
-    run: ehrql:v1 generate-dataset analysis/dataset_definition.py --output output/dataset.csv.gz
+
+#######################################################
+# PRIMIS
+#######################################################
+
+  generate_dataset_PRIMIS:
+    run: ehrql:v1 generate-dataset analysis/PRIMIS/dataset_definition.py --output output/PRIMIS/dataset.csv.gz
     outputs:
       highly_sensitive:
-        dataset: output/dataset.csv.gz
+        dataset: output/PRIMIS/dataset.csv.gz
