@@ -11,3 +11,15 @@ actions:
     outputs:
       highly_sensitive:
         dataset: output/PRIMIS/dataset.csv.gz
+
+
+#######################################################
+# vaccine-history
+#######################################################
+
+  generate_dataset_vaccine-history:
+    run: ehrql:v1 generate-dataset analysis/vaccine-history/dataset_definition.py --output output/vaccine-history/dataset.csv.gz
+    outputs:
+      highly_sensitive:
+        dataset: output/vaccine-history/dataset.csv.gz
+
