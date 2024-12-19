@@ -166,7 +166,12 @@ def has_severe_obesity(index_date):
     event_bmi = last_prior_event(
         bmi, 
         index_date,
-        where=(clinical_events.numeric_value.is_not_null())
+        where=(
+            clinical_events.numeric_value.is_not_null() & 
+            # Ignore out-of-range values
+            (clinical_events.numeric_value > 4) & 
+            (clinical_events.numeric_value < 200)
+        )
     )
     # Severe obesity
     severe_obesity = case(
