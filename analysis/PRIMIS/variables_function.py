@@ -29,7 +29,7 @@
 
 from ehrql import case, when, days, years
 
-from codelists import *
+import codelists
 
 from ehrql.tables.core import (
   medications,
@@ -96,16 +96,16 @@ def last_prior_meds(codelist, index_date, where=True):
 # Asthma
 def has_asthma(index_date):
     # Asthma diagnosis
-    has_astdx = has_prior_event(ast, index_date)
+    has_astdx = has_prior_event(codelists.ast, index_date)
     # Asthma admision
     has_asthadm = has_prior_event(
-        astadm,
+        codelists.astadm,
         index_date,
         where = clinical_events.date.is_on_or_between(index_date - years(2), index_date)
     )
     # Inhaled asthma prescription in previous year
     has_astrx_inhaled = has_prior_meds(
-        astrxm1,
+        codelists.astrxm1,
         index_date,
         where = medications.date.is_on_or_after(index_date - years(1))
     )
@@ -113,7 +113,7 @@ def has_asthma(index_date):
     prior_meds = medications.where(medications.date.is_on_or_before(index_date))
     count_astrx_oral = (
         prior_meds
-        .where(prior_meds.dmd_code.is_in(astrx))
+        .where(prior_meds.dmd_code.is_in(codelists.astrx))
         .where(prior_meds.date.is_on_or_between(index_date - years(2), index_date))
         .count_for_patient()
     )
@@ -128,11 +128,11 @@ def has_asthma(index_date):
 # Chronic Kidney Disease (CKD)
 def has_ckd(index_date):
     # Chronic kidney disease diagnostic codes
-    has_ckd_cov = has_prior_event(ckd_cov, index_date)
+    has_ckd_cov = has_prior_event(codelists.ckd_cov, index_date)
     # Chronic kidney disease codes - all stages
-    ckd15_date = last_prior_event(ckd15, index_date).date
+    ckd15_date = last_prior_event(codelists.ckd15, index_date).date
     # Chronic kidney disease codes-stages 3 - 5
-    ckd35_date = last_prior_event(ckd35, index_date).date
+    ckd35_date = last_prior_event(codelists.ckd35, index_date).date
     # Chronic kidney disease
     ckd = case(
         when(has_ckd_cov).then(True),
@@ -144,7 +144,7 @@ def has_ckd(index_date):
 
 # Chronic Respiratory Disease (CRD)
 def has_crd(index_date, where=True):
-    has_resp_cov = has_prior_event(resp_cov, index_date)
+    has_resp_cov = has_prior_event(codelists.resp_cov, index_date)
     has_crd = has_resp_cov | has_asthma(index_date)
     return has_crd
 
@@ -154,17 +154,17 @@ def has_severe_obesity(index_date):
     aged18plus = patients.age_on(index_date) >= 18
     # Last BMI stage event
     date_bmi_stage = last_prior_event(
-        bmi_stage, 
+        codelists.bmi_stage, 
         index_date
     ).date
     # Last severe obesity event
     date_sev_obesity = last_prior_event(
-        sev_obesity, 
+        codelists.sev_obesity, 
         index_date
     ).date
     # Last BMI event not null
     event_bmi = last_prior_event(
-        bmi, 
+        codelists.bmi, 
         index_date,
         where=(
             clinical_events.numeric_value.is_not_null() & 
@@ -196,19 +196,19 @@ def has_severe_obesity(index_date):
 def has_pregnancy(index_date):
     # Pregnancy delivery code date (a delivery code between 8 and 15 months prior to index date)
     pregAdel_date = last_prior_event(
-        pregdel,
+        codelists.pregdel,
         index_date,
         where=clinical_events.date.is_on_or_between(index_date - days(7 * 65), index_date - days((7 * 30) + 1))
     ).date
     # Pregnancy: 8 months and 15 months (a pregnancy code between 8 and 15 months prior to index date)
     pregA_date = last_prior_event(
-        preg,
+        codelists.preg,
         index_date,
         where=clinical_events.date.is_on_or_between(index_date - days(7 * 65), index_date - days((7 * 30) + 1))
     ).date
     # Pregnancy: <8 months (a pregnancy code within 8 months prior to index date)
     pregB = has_prior_event(
-        preg,
+        codelists.preg,
         index_date,
         where=clinical_events.date.is_on_or_between(index_date - days(7 * 30), index_date)
     )
@@ -226,11 +226,11 @@ def has_pregnancy(index_date):
 
 # Diabetes
 def has_diabetes(index_date, where=True):
-    date_diab = last_prior_event(diab, index_date).date
-    date_dmres = last_prior_event(dmres, index_date).date
-    has_gdiab = has_prior_event(gdiab, index_date)
+    date_diab = last_prior_event(codelists.diab, index_date).date
+    date_dmres = last_prior_event(codelists.dmres, index_date).date
+    has_gdiab = has_prior_event(codelists.gdiab, index_date)
     has_diab_group = has_gdiab & has_pregnancy(index_date)
-    has_addis = has_prior_event(addis, index_date)
+    has_addis = has_prior_event(codelists.addis, index_date)
     # Diabetes condition
     diabetes = case(
         when(date_dmres < date_diab).then(True),
@@ -245,24 +245,24 @@ def has_diabetes(index_date, where=True):
 def is_immunosuppressed(index_date):
     # Immunosuppression diagnosis
     has_immdx_cov = has_prior_event(
-        immdx_cov, 
+        codelists.immdx_cov, 
         index_date
     )
     # Immunosuppression medication (within the last 3 years)
     has_immrx = has_prior_meds(
-        immrx,
+        codelists.immrx,
         index_date,
         where=medications.date.is_on_or_after(index_date - years(3))
     )
     # Immunosuppression admin date (within the last 3 years)
     has_immadm = has_prior_event(
-        immadm,
+        codelists.immadm,
         index_date,
         where=clinical_events.date.is_on_or_after(index_date - years(3))
     )
     # Chemotherapy medication date (within the last 3 years)
     has_dxt_chemo = has_prior_event(
-        dxt_chemo,
+        codelists.dxt_chemo,
         index_date,
         where=clinical_events.date.is_on_or_after(index_date - years(3))
     )
@@ -278,9 +278,9 @@ def is_immunosuppressed(index_date):
 
 # Severe mental illness 
 def has_smi(index_date, where=True):
-    date_sev_mental = last_prior_event(sev_mental, index_date).date
+    date_sev_mental = last_prior_event(codelists.sev_mental, index_date).date
     # Remission codes relating to Severe Mental Illness
-    date_smhres = last_prior_event(smhres, index_date).date
+    date_smhres = last_prior_event(codelists.smhres, index_date).date
     # Severe mental illness
     smi = case(
         when(date_smhres < date_sev_mental).then(True),
@@ -301,11 +301,11 @@ def primis_atrisk(index_date):
         has_ckd(index_date) |                   # chronic kidney disease
         has_crd(index_date) |                   # chronic respiratory disease
         has_diabetes(index_date) |              # diabetes        
-        has_prior_event(cld, index_date) |      # chronic liver disease
-        has_prior_event(cns_cov, index_date) |  # chronic neurological disease
-        has_prior_event(chd_cov, index_date) |  # chronic heart disease
-        has_prior_event(spln_cov, index_date) | # asplenia or spleen dysfunction
-        has_prior_event(learndis, index_date) | # learning disability
+        has_prior_event(codelists.cld, index_date) |      # chronic liver disease
+        has_prior_event(codelists.cns_cov, index_date) |  # chronic neurological disease
+        has_prior_event(codelists.chd_cov, index_date) |  # chronic heart disease
+        has_prior_event(codelists.spln_cov, index_date) | # asplenia or spleen dysfunction
+        has_prior_event(codelists.learndis, index_date) | # learning disability
         has_smi(index_date) |                   # severe mental illness
         has_severe_obesity(index_date)          # severe obesity
     )
@@ -314,13 +314,13 @@ def primis_atrisk(index_date):
 def primis_variables(dataset, index_date, var_name_suffix=""):
     dataset.add_column(f"immunosuppressed{var_name_suffix}", is_immunosuppressed(index_date)) #immunosuppress grouped
     dataset.add_column(f"ckd{var_name_suffix}", has_ckd(index_date)) #chronic kidney disease
-    dataset.add_column(f"crd{var_name_suffix}", has_prior_event(resp_cov, index_date)) #chronic respiratory disease
+    dataset.add_column(f"crd{var_name_suffix}", has_prior_event(codelists.resp_cov, index_date)) #chronic respiratory disease
     dataset.add_column(f"diabetes{var_name_suffix}", has_diabetes(index_date)) #diabetes
-    dataset.add_column(f"cld{var_name_suffix}", has_prior_event(cld, index_date)) # chronic liver disease
-    dataset.add_column(f"chd{var_name_suffix}", has_prior_event(chd_cov, index_date)) #chronic heart disease
-    dataset.add_column(f"cns{var_name_suffix}", has_prior_event(cns_cov, index_date)) # chronic neurological disease
-    dataset.add_column(f"asplenia{var_name_suffix}", has_prior_event(spln_cov, index_date)) # asplenia or dysfunction of the Spleen
-    dataset.add_column(f"learndis{var_name_suffix}", has_prior_event(learndis, index_date)) # learning Disability
+    dataset.add_column(f"cld{var_name_suffix}", has_prior_event(codelists.cld, index_date)) # chronic liver disease
+    dataset.add_column(f"chd{var_name_suffix}", has_prior_event(codelists.chd_cov, index_date)) #chronic heart disease
+    dataset.add_column(f"cns{var_name_suffix}", has_prior_event(codelists.cns_cov, index_date)) # chronic neurological disease
+    dataset.add_column(f"asplenia{var_name_suffix}", has_prior_event(codelists.spln_cov, index_date)) # asplenia or dysfunction of the Spleen
+    dataset.add_column(f"learndis{var_name_suffix}", has_prior_event(codelists.learndis, index_date)) # learning Disability
     dataset.add_column(f"smi{var_name_suffix}", has_smi(index_date)) #severe mental illness
     dataset.add_column(f"severe_obesity{var_name_suffix}", has_severe_obesity(index_date)) # severe obesity
     dataset.add_column(f"primis_atrisk{var_name_suffix}", primis_atrisk(index_date)) # at risk 
