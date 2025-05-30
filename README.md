@@ -1,8 +1,10 @@
 # reusable-variables
 
-This repo contains common variables or variable patterns defined in ehrQL that may be used in multiple OpenSAFELY studies.
+This repo contains common variables or variable patterns defined in ehrQL that may be needed across multiple OpenSAFELY studies.
 
 The repo is a experiment at collecting commonly used variables in a single place, and will hopefully inform features required for a more formal OpenSAFELY variables library in future.
+
+The variables are "reusable" in the sense that the code can be copied into your own study repo; they cannot be accessed directly from another repo. The repo is therefore, for now, essentially a place for documenting best-practice for defining a given variable.
 
 ## Instructions for adding new variables
 
