@@ -1,5 +1,11 @@
 {
   "files": {
+    "opensafely-ethnicity-snomed-0removed.csv": {
+      "id": "opensafely/ethnicity-snomed-0removed/22911876",
+      "url": "https://www.opencodelists.org/codelist/opensafely/ethnicity-snomed-0removed/22911876/",
+      "downloaded_at": "2025-05-29 14:00:10.933766Z",
+      "sha": "d95a2f826299563aa57f6fa99009e6e13a65151b"
+    },
     "primis-covid19-vacc-uptake-astadm.csv": {
       "id": "primis-covid19-vacc-uptake/astadm/6dee7f06",
       "url": "https://www.opencodelists.org/codelist/primis-covid19-vacc-uptake/astadm/6dee7f06/",

@@ -2,6 +2,18 @@ version: '4.0'
 
 actions:
 
+
+#######################################################
+# ethnicity
+#######################################################
+
+  generate_dataset_ethnicity:
+    run: ehrql:v1 generate-dataset analysis/ethnicity/dataset_definition.py --output output/ethnicity/dataset.csv.gz
+    outputs:
+      highly_sensitive:
+        dataset: output/ethnicity/dataset.csv.gz
+
+
 #######################################################
 # PRIMIS
 #######################################################
