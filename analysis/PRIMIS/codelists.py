@@ -28,7 +28,7 @@ astrxm1 = codelist_from_csv(
 
 ## Asthma systemic steroid medication codes
 astrx = codelist_from_csv(
-  "codelists/primis-covid19-vacc-uptake-astrx.csv",
+  "codelists/primis-covid19-vacc-uptake-astrxm2.csv",
   column="code",
 )
 

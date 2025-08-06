@@ -7,62 +7,62 @@
       "sha": "d95a2f826299563aa57f6fa99009e6e13a65151b"
     },
     "primis-covid19-vacc-uptake-astadm.csv": {
-      "id": "primis-covid19-vacc-uptake/astadm/6dee7f06",
-      "url": "https://www.opencodelists.org/codelist/primis-covid19-vacc-uptake/astadm/6dee7f06/",
+      "id": "primis-covid19-vacc-uptake/astadm/v2.5",
+      "url": "https://www.opencodelists.org/codelist/primis-covid19-vacc-uptake/astadm/v2.5/",
       "downloaded_at": "2024-12-10 14:27:15.147886Z",
       "sha": "1b3aba9c130dafdc6a1aea3254ac6db6dfd6169b"
     },
     "primis-covid19-vacc-uptake-ast.csv": {
-      "id": "primis-covid19-vacc-uptake/ast/10a3993c",
-      "url": "https://www.opencodelists.org/codelist/primis-covid19-vacc-uptake/ast/10a3993c/",
-      "downloaded_at": "2024-12-10 14:27:15.242994Z",
-      "sha": "681a95d8c85a75af2df68afe25306a4fdae1f857"
+      "id": "primis-covid19-vacc-uptake/ast/v2.5",
+      "url": "https://www.opencodelists.org/codelist/primis-covid19-vacc-uptake/ast/v2.5/",
+      "downloaded_at": "2025-08-06 14:06:10.311847Z",
+      "sha": "6cdfbcb46f4969fcb92e120ca978e8b262eb881c"
     },
-    "primis-covid19-vacc-uptake-astrx.csv": {
-      "id": "primis-covid19-vacc-uptake/astrx/6f2f876e",
-      "url": "https://www.opencodelists.org/codelist/primis-covid19-vacc-uptake/astrx/6f2f876e/",
-      "downloaded_at": "2024-12-10 14:27:15.328105Z",
-      "sha": "c09604fc9ae23507a1f04267a315490891ff4819"
+    "primis-covid19-vacc-uptake-astrxm2.csv": {
+      "id": "primis-covid19-vacc-uptake/astrxm2/v2.5",
+      "url": "https://www.opencodelists.org/codelist/primis-covid19-vacc-uptake/astrxm2/v2.5/",
+      "downloaded_at": "2025-08-06 14:06:10.406246Z",
+      "sha": "c83798a645158e626c5908be5cfeac993d0d3180"
     },
     "primis-covid19-vacc-uptake-astrxm1.csv": {
-      "id": "primis-covid19-vacc-uptake/astrxm1/3e825892",
-      "url": "https://www.opencodelists.org/codelist/primis-covid19-vacc-uptake/astrxm1/3e825892/",
+      "id": "primis-covid19-vacc-uptake/astrxm1/v2.5",
+      "url": "https://www.opencodelists.org/codelist/primis-covid19-vacc-uptake/astrxm1/v2.5/",
       "downloaded_at": "2024-12-10 14:27:15.441840Z",
       "sha": "98df93369f78bb8216f43cf2a380e1937a8fb290"
     },
     "primis-covid19-vacc-uptake-resp_cov.csv": {
-      "id": "primis-covid19-vacc-uptake/resp_cov/44ae8c0d",
-      "url": "https://www.opencodelists.org/codelist/primis-covid19-vacc-uptake/resp_cov/44ae8c0d/",
+      "id": "primis-covid19-vacc-uptake/resp_cov/v2.5",
+      "url": "https://www.opencodelists.org/codelist/primis-covid19-vacc-uptake/resp_cov/v2.5/",
       "downloaded_at": "2024-12-10 14:27:15.682432Z",
       "sha": "be8c688cd534a0d4ce0b0ed8c01d4a81a2e7c907"
     },
     "primis-covid19-vacc-uptake-chd_cov.csv": {
-      "id": "primis-covid19-vacc-uptake/chd_cov/5791cbc7",
-      "url": "https://www.opencodelists.org/codelist/primis-covid19-vacc-uptake/chd_cov/5791cbc7/",
+      "id": "primis-covid19-vacc-uptake/chd_cov/v2.5",
+      "url": "https://www.opencodelists.org/codelist/primis-covid19-vacc-uptake/chd_cov/v2.5/",
       "downloaded_at": "2024-12-10 14:27:16.005646Z",
       "sha": "72aa0ad397960337be0243c793b8514a920635a1"
     },
     "primis-covid19-vacc-uptake-ckd15.csv": {
-      "id": "primis-covid19-vacc-uptake/ckd15/09b0b232",
-      "url": "https://www.opencodelists.org/codelist/primis-covid19-vacc-uptake/ckd15/09b0b232/",
+      "id": "primis-covid19-vacc-uptake/ckd15/v2.5",
+      "url": "https://www.opencodelists.org/codelist/primis-covid19-vacc-uptake/ckd15/v2.5/",
       "downloaded_at": "2024-12-10 14:27:16.100052Z",
       "sha": "c2e147ad688bcfa209eccf10587cdd27807e5eda"
     },
     "primis-covid19-vacc-uptake-ckd35.csv": {
-      "id": "primis-covid19-vacc-uptake/ckd35/7980326d",
-      "url": "https://www.opencodelists.org/codelist/primis-covid19-vacc-uptake/ckd35/7980326d/",
+      "id": "primis-covid19-vacc-uptake/ckd35/v2.5",
+      "url": "https://www.opencodelists.org/codelist/primis-covid19-vacc-uptake/ckd35/v2.5/",
       "downloaded_at": "2024-12-10 14:27:16.201873Z",
       "sha": "2e2e33d85817844bb8922fc6c87583c898f61ec5"
     },
     "primis-covid19-vacc-uptake-ckd_cov.csv": {
-      "id": "primis-covid19-vacc-uptake/ckd_cov/0a7765c1",
-      "url": "https://www.opencodelists.org/codelist/primis-covid19-vacc-uptake/ckd_cov/0a7765c1/",
+      "id": "primis-covid19-vacc-uptake/ckd_cov/v2.5",
+      "url": "https://www.opencodelists.org/codelist/primis-covid19-vacc-uptake/ckd_cov/v2.5/",
       "downloaded_at": "2024-12-10 14:27:16.343258Z",
       "sha": "b74d3cdbeda3ccbef212135bbb02871686177af1"
     },
     "primis-covid19-vacc-uptake-cld.csv": {
-      "id": "primis-covid19-vacc-uptake/cld/2386d8f6",
-      "url": "https://www.opencodelists.org/codelist/primis-covid19-vacc-uptake/cld/2386d8f6/",
+      "id": "primis-covid19-vacc-uptake/cld/v2.5",
+      "url": "https://www.opencodelists.org/codelist/primis-covid19-vacc-uptake/cld/v2.5/",
       "downloaded_at": "2024-12-10 14:27:16.475105Z",
       "sha": "5749bbf6646310f435fa029dac659ba4274e1d81"
     },
