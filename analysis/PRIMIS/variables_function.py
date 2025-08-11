@@ -98,7 +98,7 @@ def has_asthma(index_date):
     # Asthma diagnosis
     has_astdx = has_prior_event(codelists.ast, index_date)
     # Asthma admision
-    has_asthadm = has_prior_event(
+    has_astadm = has_prior_event(
         codelists.astadm,
         index_date,
         where = clinical_events.date.is_on_or_between(index_date - years(2), index_date)
@@ -113,13 +113,13 @@ def has_asthma(index_date):
     prior_meds = medications.where(medications.date.is_on_or_before(index_date))
     count_astrx_oral = (
         prior_meds
-        .where(prior_meds.dmd_code.is_in(codelists.astrx))
+        .where(prior_meds.dmd_code.is_in(codelists.astrxm2))
         .where(prior_meds.date.is_on_or_between(index_date - years(2), index_date))
         .count_for_patient()
     )
     # Asthma 
     asthma = case(
-        when(has_asthadm).then(True),
+        when(has_astadm).then(True),
         when(has_astdx & has_astrx_inhaled & (count_astrx_oral >= 2)).then(True),
         otherwise=False
     )
